@@ -1,0 +1,26 @@
+{
+  "name": "easygit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/easygit.js",
+  "scripts": {
+    "test": "madrun test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RastaAlex/EasyGit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RastaAlex/EasyGit/issues"
+  },
+  "homepage": "https://github.com/RastaAlex/EasyGit#readme",
+  "dependencies": {
+    "simple-git": "^2.6.0",
+    "try-to-catch": "^3.0.0"
+  }
+}
