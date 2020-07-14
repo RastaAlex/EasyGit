@@ -5,7 +5,7 @@ const git = require('simple-git/promise');
 const tryToCatch = require('try-to-catch');
 
 async function main() {
-    await git().add('./*');
+    await git().add('easygit.js');
     await git().commit('new commit');
     await git().push('origin', 'master');
 }
