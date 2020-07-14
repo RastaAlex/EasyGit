@@ -6,8 +6,11 @@ const tryToCatch = require('try-to-catch');
 
 async function main() {
     await git().add('easygit.js');
+    console.log('file add');
     await git().commit('new commit');
+    console.log('file commit');
     await git().push('origin', 'master');
+    console.log('file push');
 }
 //main().catch((err) => console.log(err.message));
 
