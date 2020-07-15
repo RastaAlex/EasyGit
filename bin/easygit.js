@@ -19,8 +19,8 @@ async function runGit() {
 }
 //main().catch((err) => console.log(err.message));
 
-const watcher = fs.watch('./', async (event) => {
-    if (event === 'change') {
+fs.watch('./', async (event) => {
+    if (event === 'change' && !isProcess) {
         await runGit();
     }
     const [error] = await tryToCatch(runGit);
@@ -28,7 +28,3 @@ const watcher = fs.watch('./', async (event) => {
     if (error)
         console.error(error);
 });
-
-if (isProcess === false) {
-    watcher.close();
-}
