@@ -22,4 +22,4 @@ fs.watch('./', async (event) => {
     
     if (error)
         console.error(error);
-});;
+});
