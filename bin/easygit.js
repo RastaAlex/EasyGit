@@ -3,26 +3,27 @@
 const fs = require('fs');
 const git = require('simple-git/promise');
 const tryToCatch = require('try-to-catch');
+let isProcess;
 
-async function main() {
-    let inProcess = true;
-    console.log(inProcess);
+async function runGit() {
+    isProcess = true;
+    console.log(isProcess);
     await git().add('easygit.js');
     console.log('file add');
     await git().commit('new commit');
     console.log('file commit');
     await git().push('origin', 'master');
     console.log('file push');
-    inProcess = false;
-    console.log(inProcess);
+    isProcess = false;
+    console.log(isProcess);
 }
 //main().catch((err) => console.log(err.message));
 
 fs.watch('./', async (event) => {
-    if (event === 'change') {
-        await main();
+    if (event === 'change' && !isProcess) {
+        await runGit();
     }
-    const [error] = await tryToCatch(main);
+    const [error] = await tryToCatch(runGit);
     
     if (error)
         console.error(error);
