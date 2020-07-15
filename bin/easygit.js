@@ -5,12 +5,16 @@ const git = require('simple-git/promise');
 const tryToCatch = require('try-to-catch');
 
 async function main() {
+    let inProcess = true;
+    console.log(inProcess);
     await git().add('easygit.js');
     console.log('file add');
     await git().commit('new commit');
     console.log('file commit');
     await git().push('origin', 'master');
     console.log('file push');
+    inProcess = false;
+    console.log(inProcess);
 }
 //main().catch((err) => console.log(err.message));
 
