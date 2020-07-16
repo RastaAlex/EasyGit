@@ -16,11 +16,14 @@ async function runGit() {
     console.log('file push');
     isProcess = false;
     console.log(isProcess);
+    if (isProcess === true) {
+        return;
+    }
 }
 //main().catch((err) => console.log(err.message));
 
 fs.watch('./', async (event) => {
-    if (event === 'change' && !isProcess) {
+    if (event === 'change') {
         await runGit();
     }
     const [error] = await tryToCatch(runGit);
