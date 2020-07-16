@@ -3,6 +3,7 @@
 const fs = require('fs');
 const git = require('simple-git/promise');
 const tryToCatch = require('try-to-catch');
+const chokidar = require('chokidar');
 let isProcess;
 
 async function runGit() {
@@ -23,7 +24,7 @@ async function runGit() {
 }
 //main().catch((err) => console.log(err.message));
 
-fs.watch('./', async (event) => {
+chokidar.watch('.').on('all', async (event) => {
     if (event === 'change') {
         await runGit();
     }
