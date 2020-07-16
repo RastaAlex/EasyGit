@@ -24,10 +24,10 @@ async function runGit() {
 }
 //main().catch((err) => console.log(err.message));
 
-chokidar.watch('.').on('all', async (event) => {
-    if (event === 'change') {
-        await runGit();
-    }
+chokidar.watch('.').on('change', async (event) => {
+    // if (event === 'change') {
+    //     await runGit();
+    // }
     const [error] = await tryToCatch(runGit);
     
     if (error)
