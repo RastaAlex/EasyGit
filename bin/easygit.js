@@ -16,7 +16,7 @@ async function runGit() {
     console.log('file push');
     isProcess = false;
     console.log(isProcess);
-    if (isProcess === true) {
+    if (isProcess == true) {
         return;
     }
 }
