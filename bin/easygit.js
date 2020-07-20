@@ -7,18 +7,16 @@ const chokidar = require('chokidar');
 let isProcess;
 
 async function runGit() {
-    isProcess = true;
-    console.log(isProcess);
     await git().add('easygit.js');
     console.log('file add');
     await git().commit('new commit');
     console.log('file commit');
     await git().push('origin', 'master');
     console.log('file push');
-    isProcess = false;
-    console.log(isProcess);
     
 }
+
+
 
 
 chokidar.watch('.').on('change', async (event) => {
@@ -27,3 +25,10 @@ chokidar.watch('.').on('change', async (event) => {
     if (error)
         console.error(error);
 });
+
+// $ node easygit.js
+// true
+// file add
+// file commit
+// file push
+// false
