@@ -7,9 +7,6 @@ const chokidar = require('chokidar');
 let isProcess;
 
 async function runGit() {
-    // if (isProcess === true) {
-    //     return;
-    // }
     isProcess = true;
     console.log(isProcess);
     await git().add('easygit.js');
@@ -22,7 +19,7 @@ async function runGit() {
     console.log(isProcess);
     
 }
-//main().catch((err) => console.log(err.message));
+
 
 chokidar.watch('.').on('change', async (event) => {
     const [error] = await tryToCatch(runGit);
