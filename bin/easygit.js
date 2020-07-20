@@ -4,7 +4,6 @@ const fs = require('fs');
 const git = require('simple-git/promise');
 const tryToCatch = require('try-to-catch');
 const chokidar = require('chokidar');
-let isProcess;
 
 async function runGit() {
     await git().add('easygit.js');
@@ -26,9 +25,3 @@ chokidar.watch('.').on('change', async (event) => {
         console.error(error);
 });
 
-// $ node easygit.js
-// true
-// file add
-// file commit
-// file push
-// false
